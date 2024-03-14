@@ -13,6 +13,16 @@ const router = createRouter({
           "Please provide your personal details so we can get to know you better.",
       },
     },
+    {
+      path: "/skills",
+      name: "SkillLevel",
+      component: () => import("../pages/SkillLevel.vue"),
+      meta: {
+        pageName: "Skill Level",
+        pageDescription:
+          "Please tell us about your skill level in frontend development.",
+      },
+    },
   ],
 });
 
