@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 
-import BaseButton from "./components/Button.vue";
-import BaseInput from "./components/BaseInput.vue";
-
-const route = useRoute()
+const route = useRoute();
 </script>
 
 <template>
@@ -18,15 +15,18 @@ const route = useRoute()
     </div>
 
     <div class="multistep-wrapper">
-      <h2 class="multistep-title">{{ route.meta.pageName }}</h2>
-      <p class="multistep-description">{{ route.meta.pageDescription }}</p>
-
-      <div class="multistep-content">
-        <router-view></router-view>
+      <div class="multistep-stepper">
+        
       </div>
 
-      <!-- <BaseButton>Next step</BaseButton>
-      <BaseInput label="Full name" placeholder="name@email.com" /> -->
+      <div class="multistep-body">
+        <h2 class="multistep-title">{{ route.meta.pageName }}</h2>
+        <p class="multistep-description">{{ route.meta.pageDescription }}</p>
+
+        <div class="multistep-content">
+          <router-view></router-view>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -87,14 +87,25 @@ const route = useRoute()
 }
 
 .multistep-description {
-  color: #6B7280;
+  color: #6b7280;
 
   font-family: "Poppins";
   font-size: 0.875rem;
   font-weight: 400;
 }
 
+.multistep-body {
+  border-top: 1px solid #E5E7EB;
+  
+
+  padding-top: 1.75rem;
+}
+
 .multistep-content {
   margin-top: 1.5rem;
+}
+
+.multistep-actions {
+  margin-top: 2rem;
 }
 </style>

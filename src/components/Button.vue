@@ -3,13 +3,22 @@ interface ButtonProps {
   variant: string;
 }
 
+type ButtonEmits = {
+  [key: string]: any;
+  click: any[];
+};
+
 withDefaults(defineProps<ButtonProps>(), {
-  variant: 'primary'
-})
+  variant: "primary",
+});
+
+defineEmits<ButtonEmits>();
 </script>
 
 <template>
-  <button :class="['base-button', variant]"><slot></slot></button>
+  <button :class="['base-button', variant]" @click="$emit('click')">
+    <slot></slot>
+  </button>
 </template>
 
 <style scoped>

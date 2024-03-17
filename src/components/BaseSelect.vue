@@ -1,21 +1,41 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
+
 interface ButtonProps {
-  modelValue: string | number;
+  modelValue: string | undefined;
   label: string;
   icon: string;
-  placeholder: string;
 }
 
-withDefaults(defineProps<ButtonProps>(), {
+type SelectEmits = {
+  [key: string]: any;
+  "update:modelValue": string;
+};
+
+const props = withDefaults(defineProps<ButtonProps>(), {
   label: "",
   placeholder: "",
   icon: "",
 });
+
+defineEmits<SelectEmits>();
+
+const imgUrl = ref("");
+
+const importIcon = async () => import(`../assets/icons/icon-${props.icon}.svg`);
+
+onMounted(async () => {
+  imgUrl.value = await importIcon();
+});
 </script>
 
 <template>
-  <div class="base-select">
-    <img :src="`../assets/icons/icon-${icon}`" alt="" class="select-icon" />
+  <div
+    class="base-select"
+    @click="$emit('update:modelValue', label)"
+    :class="{ selected: modelValue === label }"
+  >
+    <component :is="imgUrl" class="select-icon"> </component>
     <label>{{ label }}</label>
   </div>
 </template>
@@ -29,10 +49,16 @@ withDefaults(defineProps<ButtonProps>(), {
 
   border: 1px solid #d1d5db;
   border-radius: 0.625rem;
+
+  cursor: pointer;
 }
 
-.base-textfield:hover {
-  outline-color: #fc6c4c;
+.base-select:hover {
+  border-color: #fc6c4c;
+}
+
+.selected {
+  border: 2px solid #fc6c4c;
 }
 
 .select-icon {
@@ -47,5 +73,6 @@ label {
   font-weight: 500;
 
   margin-bottom: 0.5rem;
+  cursor: pointer;
 }
 </style>
