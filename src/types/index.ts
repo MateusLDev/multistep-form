@@ -4,5 +4,5 @@ export interface Steps {
   phone?: string;
   portfolioLink?: string;
   skillLevel?: string;
-  challenges?: string[];
+  challengePreference?: string;
 }
