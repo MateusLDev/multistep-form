@@ -45,7 +45,7 @@ onMounted(async () => {
   display: flex;
   align-items: center;
 
-  padding: 1.125rem;
+  padding: 1.125rem 1.125rem;
 
   border: 1px solid #d1d5db;
   border-radius: 0.625rem;
@@ -72,7 +72,6 @@ label {
   font-size: 0.875rem;
   font-weight: 500;
 
-  margin-bottom: 0.5rem;
   cursor: pointer;
 }
 </style>
