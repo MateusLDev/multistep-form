@@ -9,7 +9,7 @@ export const useStepsDataStore = defineStore("stepsData", {
   },
   actions: {
     async nextStep(routeName: string, data: Partial<Steps>) {
-      this.steps = data;
+      this.steps = { ...this.steps, ...data};
       this.$router.push({ name: routeName });
     },
     goBack() {

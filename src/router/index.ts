@@ -23,6 +23,16 @@ const router = createRouter({
           "Please tell us about your skill level in frontend development.",
       },
     },
+    {
+      path: "/challenge",
+      name: "ChallengePreference",
+      component: () => import("../pages/ChallengePreference.vue"),
+      meta: {
+        pageName: "Challenge Preference",
+        pageDescription:
+          "Please tell us which frontend challenges you would like to participate in.",
+      },
+    },
   ],
 });
 
