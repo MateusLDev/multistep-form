@@ -15,3 +15,18 @@ body {
 
   height: 100vh;
 }
+
+.multistep-actions {
+  border-top: 1px solid #E5E7EB;
+  padding-top: 2rem;
+  margin-top: 2.625rem;
+  display: flex;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}

@@ -1,20 +1,32 @@
 <script setup lang="ts">
+import { ref } from "vue";
+
 interface ButtonProps {
-  modelValue: string | number;
+  modelValue?: string | number;
   label: string;
   placeholder: string;
 }
 
-withDefaults(defineProps<ButtonProps>(), {
+const props = withDefaults(defineProps<ButtonProps>(), {
   label: "",
   placeholder: "",
 });
+
+defineEmits(["update:modelValue"]);
+
+const inputModel = ref(...[props.modelValue]);
 </script>
 
 <template>
   <div class="input-wrapper">
     <label for="">{{ label }}</label>
-    <input type="text" class="base-textfield" :placeholder />
+    <input
+      type="text"
+      v-model="inputModel"
+      class="base-textfield"
+      :placeholder
+      @input="$emit('update:modelValue', inputModel)"
+    />
     <span></span>
   </div>
 </template>

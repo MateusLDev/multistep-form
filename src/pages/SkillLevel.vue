@@ -11,6 +11,7 @@ import BaseSelect from "../components/BaseSelect.vue";
       <BaseSelect label="Advanced" icon="advanced" />
       <BaseSelect label="Expert" icon="Expert" />
     </form>
+    
   </div>
 </template>
 
