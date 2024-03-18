@@ -1,1 +1,0 @@
-alias gc='fancy-commit'
