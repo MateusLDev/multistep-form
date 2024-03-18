@@ -33,6 +33,16 @@ const router = createRouter({
           "Please tell us which frontend challenges you would like to participate in.",
       },
     },
+    {
+      path: "/review",
+      name: "Review",
+      component: () => import("../pages/Review.vue"),
+      meta: {
+        pageName: "Review and Confirm",
+        pageDescription:
+          "Please review your information to make sure everything is accurate.",
+      },
+    },
   ],
 });
 

@@ -26,7 +26,7 @@ const challengePreference = ref(...[store.steps.challengePreference]);
       >
       <BaseButton
         variant="primary"
-        @click="store.nextStep('ChallengePreference', { challengePreference })"
+        @click="store.nextStep('Review', { challengePreference })"
         >Next step</BaseButton
       >
     </div>
