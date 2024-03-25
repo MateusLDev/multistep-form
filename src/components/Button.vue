@@ -1,10 +1,12 @@
 <script setup lang="ts">
 interface ButtonProps {
+  /** The button variant styles */
   variant: string;
 }
 
 type ButtonEmits = {
   [key: string]: any;
+  /** Fired when button ins clicked */
   click: any[];
 };
 
@@ -13,6 +15,11 @@ withDefaults(defineProps<ButtonProps>(), {
 });
 
 defineEmits<ButtonEmits>();
+
+defineSlots<{
+  /** Button text content */
+  default(): string;
+}>();
 </script>
 
 <template>

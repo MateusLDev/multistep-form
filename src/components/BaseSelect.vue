@@ -2,19 +2,22 @@
 import { ref, onMounted } from "vue";
 
 interface ButtonProps {
+  /** The Select v-model */
   modelValue: string | undefined;
+  /** The select label */
   label: string;
+  /** The Select icon name */
   icon: string;
 }
 
 type SelectEmits = {
   [key: string]: any;
+  /** Fired when Select is clicked */
   "update:modelValue": string;
 };
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   label: "",
-  placeholder: "",
   icon: "",
 });
 
